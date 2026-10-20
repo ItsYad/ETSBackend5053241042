@@ -15,7 +15,7 @@ Persona saya adalah admin himpunan (Persona C). Ruang dan alat himpunan tidak bo
 
 ## 3. Satu keputusan desain
 
-(Satu keputusan yang kamu ambil, pilihan lain yang kamu pertimbangkan, dan alasanmu memilih yang ini. Contoh: kenapa cek bentrok per slot, bukan per rentang.)
+Cek bentrok dilakukan per slot, bukan per rentang. Untuk setiap slot dari slot_mulai sampai slot_selesai, saya hitung total unit dari peminjaman yang menahan slot, tambahkan jumlah baru, lalu bandingkan dengan stok. Pilihan lain adalah membandingkan rentang mulai dan selesai saja, tetapi itu tidak bisa menangani alat dengan stok lebih dari 1, karena yang dihitung adalah jumlah unit, bukan sekadar ada atau tidaknya peminjaman lain.
 
 ## 4. Bug atau kendala (minimal dua)
 
@@ -33,4 +33,4 @@ Persona saya adalah admin himpunan (Persona C). Ruang dan alat himpunan tidak bo
 
 ## 5. Change request
 
-(Apa yang diminta, bagian kode mana yang kamu ubah, dan satu keputusan desain yang kamu ambil.)
+Belum dikerjakan.

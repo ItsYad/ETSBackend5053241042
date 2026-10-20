@@ -25,6 +25,13 @@ func NewHandler() http.Handler {
 	mux.HandleFunc("POST /peminjaman", s.buatPeminjaman)
 	mux.HandleFunc("GET /peminjaman", s.daftarPeminjaman)
 	mux.HandleFunc("GET /peminjaman/{id}", s.detailPeminjaman)
+	for _, path := range []string{
+		"/sumber-daya", "/sumber-daya/{id}",
+		"/peminjaman", "/peminjaman/{id}",
+	} {
+		mux.HandleFunc(path, metodeTidakDiizinkan)
+	}
+	mux.HandleFunc("/", tidakDitemukan)
 
 	return mux
 }

@@ -28,7 +28,6 @@ func tidakDitemukan(w http.ResponseWriter, r *http.Request) {
 	tulisError(w, http.StatusNotFound, "path tidak ditemukan")
 }
 
-
 func ambilID(r *http.Request) (int, bool) {
 	id, err := strconv.Atoi(r.PathValue("id"))
 	if err != nil {
@@ -37,7 +36,6 @@ func ambilID(r *http.Request) (int, bool) {
 	return id, true
 }
 
-
 func bacaBody(r *http.Request) []byte {
 	data, err := io.ReadAll(r.Body)
 	if err != nil {
@@ -45,7 +43,6 @@ func bacaBody(r *http.Request) []byte {
 	}
 	return data
 }
-
 
 func urai(data []byte, tujuan any) bool {
 	dec := json.NewDecoder(bytes.NewReader(data))
@@ -58,11 +55,9 @@ func urai(data []byte, tujuan any) bool {
 	return true
 }
 
-
 func panjangTeks(s string) int {
 	return utf8.RuneCountInString(s)
 }
-
 
 func tanggalValid(t string) bool {
 	if len(t) != 10 {

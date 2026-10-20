@@ -6,7 +6,6 @@ import (
 	"strings"
 )
 
-
 func menahanSlot(status string) bool {
 	return status == StatusDiajukan || status == StatusDisetujui
 }

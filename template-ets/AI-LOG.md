@@ -1,17 +1,27 @@
 # AI-LOG
 
-Catat setiap penggunaan AI yang menghasilkan kode. Jika tidak memakai AI sama sekali, tulis satu baris: **tidak memakai AI**.
+Catat penggunaan AI yang benar-benar terjadi selama pengerjaan. Bagian yang belum dikerjakan tidak perlu diisi dengan klaim pengerjaan.
 
-Log yang jujur tidak mengurangi nilai, sebanyak apa pun AI dipakai. Yang mengurangi nilai adalah log yang tidak sesuai dengan kode, atau isi log yang tidak bisa dijelaskan.
+## Kerangka server, helper JSON, dan struct (models.go, helper.go, main.go)
+
+- Prompt: Memberikan dokumen requirement dan kartu persona untuk meminta bantuan membuat kerangka REST API Go.
+- Dipakai: Kerangka server, fungsi helper, dan struct yang dihasilkan atau dibantu AI.
+- Diubah: Menghapus komentar bawaan dan merapikan format kode menggunakan gofmt.
 
 ## Sumber daya (B1)
 
-- Prompt: Meminta contoh implementasi endpoint sumber daya beserta validasi nama, jenis, dan stok.
+- Prompt: Meminta referensi implementasi endpoint sumber daya.
 - Dipakai: Referensi implementasi validasi, pembuatan data, daftar sumber daya, dan detail berdasarkan ID.
-- Diubah: Saya meninjau aturan validasi agar nama tidak kosong, panjang nama dibatasi, jenis hanya menerima ruang atau alat, dan stok minimal satu.
+- Diubah: Meninjau aturan validasi sesuai kebutuhan requirement.
 
 ## Peminjaman dan deteksi bentrok (B2, B3, B5)
 
-- Prompt: Meminta bantuan membuat endpoint peminjaman, filter daftar, detail peminjaman, validasi input, dan pemeriksaan bentrok kapasitas per slot.
-- Dipakai: Referensi fungsi validasi peminjaman, perhitungan unit terpakai, pemeriksaan bentrok, pembuatan data, daftar, dan detail peminjaman.
-- Diubah: Saya memeriksa alur perhitungan kapasitas agar jumlah peminjaman pada sumber daya dan waktu yang sama tidak melebihi stok.
+- Prompt: Meminta bantuan terkait endpoint peminjaman, filter, detail, validasi input, dan pemeriksaan kapasitas.
+- Dipakai: Referensi implementasi fungsi validasi peminjaman dan pemeriksaan bentrok kapasitas.
+- Diubah: Memeriksa kesesuaian perhitungan kapasitas dengan stok dan slot peminjaman.
+
+## Fallback error JSON untuk path dan metode yang salah (B4)
+
+- Prompt: Meminta bantuan agar respons 404 dan 405 menggunakan format JSON.
+- Dipakai: Implementasi fallback route untuk metode dan path yang tidak sesuai.
+- Diubah: Tidak ada.

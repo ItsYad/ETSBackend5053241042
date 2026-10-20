@@ -30,7 +30,6 @@ func validasiSumberDaya(in inputSumberDaya) (SumberDaya, string) {
 	return sd, ""
 }
 
-
 func (s *Server) cariSumberDaya(id int) (SumberDaya, bool) {
 	for _, sd := range s.sumberDaya {
 		if sd.ID == id {
